@@ -13,17 +13,21 @@ class CampaignNew extends Component{
         errmsg:'',
         loading:false,
     }
+
     onSubmit=async (event)=>{
         event.preventDefault();
         this.setState({loading:true,errmsg:''});
         try{
 
             const accounts= await web3.eth.getAccounts();
-            await factory.methods.createCampaign(this.state.minContribution).send({from: accounts[0],gas:'1000000'},(err,data)=>{
-                console.log("method",err);
+            await factory.methods
+                .createCampaign(this.state.minContribution.replace(/\s+/, ""))
+                .send({
+                from: accounts[0]
             });
-            
-            console.log("**try");
+
+          
+            console.log("**try ");
             Router.pushRoute('/');
         }catch(err){
             console.log("**catch");
@@ -62,7 +66,7 @@ export default CampaignNew;
 // import Layout from '../../components/Layout';
 // import factory from '../../ethereum/factory';
 // import web3 from '../../ethereum/web3';
-// // import { Router } from '../../routes';
+// import { Router } from '../../routes';
 
 // class CampaignNew extends Component {
 //   state = {
@@ -78,13 +82,8 @@ export default CampaignNew;
 
 //     try {
 //       const accounts = await web3.eth.getAccounts();
-//       await factory.methods
-//         .createCampaign(this.state.minimumContribution)
-//         .send({
-//           from: accounts[0]
-//         });
 
-//     //   Router.pushRoute('/');
+//       Router.pushRoute('/');
 //     } catch (err) {
 //       this.setState({ errorMessage: err.message });
 //     }

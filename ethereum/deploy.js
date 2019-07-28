@@ -18,7 +18,9 @@ const deploy=async ()=>{
   		.send({from:accounts[0],gas: '1000000'});
   	
 
-  	console.log('deployed address:  ',result.options.address);		
+	  console.log('deployed address:  ',result.options.address);		
+	  
+	  
 }
 
 deploy();

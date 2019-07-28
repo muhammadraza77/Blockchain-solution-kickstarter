@@ -79,7 +79,5 @@ contract Campaign{
         request.complete = true;
     }
 
-    
-    
 
 }
