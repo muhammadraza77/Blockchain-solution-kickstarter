@@ -5,7 +5,7 @@ import Layout from '../../components/Layout';
 import {Link} from '../../routes';
 import Campaign from '../../ethereum/campaign';
 import Campform from '../../components/CampaigForm';
-
+// import {Link} from '../../routes';
 class CampaignShow extends Component{
 
     static async getInitialProps(props){
@@ -19,7 +19,7 @@ class CampaignShow extends Component{
         return {
             address: props.query.address,
             minimumContribution: summary[0].toNumber(),
-            balance: summary[1].toNumber(),
+            balance: summary[1].toString(),
             requestsCount: summary[2].toNumber(),
             approversCount: summary[3].toNumber(),
             manager: summary[4]
@@ -90,6 +90,17 @@ class CampaignShow extends Component{
                     <Grid.Column width={6}>
                         <Campform address={this.props.address}></Campform>
                     </Grid.Column>
+
+                    <Grid.Row>
+                        <Grid.Column>
+                        <Link route={`/campaign/${this.props.address}/requests`}>
+                            <a>
+                            <Button primary>View Requests</Button>
+                            </a>
+                        </Link>
+                        </Grid.Column>
+                    </Grid.Row>
+
 
                 </Grid>
 
