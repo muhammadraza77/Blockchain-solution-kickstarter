@@ -9,6 +9,7 @@
   "scripts": {
     "test": "mocha --timeout 100000",
     "dev": "node server.js",
+    "heroku-postbuild": "npm run build",    
     "start": "node server.js"
   },
   "author": "",
