@@ -1,15 +1,15 @@
 {
   "name": "kickstart",
   "version": "1.0.0",
-   "engines": {
-    "node": "11.3.0"
+  "engines": {
+    "node": "11.3.0",
   },
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha --timeout 100000",
     "dev": "node server.js",
-    "start":"node server.js",
+    "start": "node server.js",
   },
   "author": "",
   "license": "ISC",
